@@ -49,8 +49,8 @@ client.connect(err => {
 		
 	console.log("Inserted 5 rows into Department table..");
   */
-  
-  const collection = client.db("SBS_Hospital").collection("Nurses");
+  /*
+	const collection = client.db("SBS_Hospital").collection("Nurses");
 
 	var updateBhawan = { Nurse_ID: 205 };
 	var newvalueBhawan = { $set: {Position: "OR Nurse" } };
@@ -58,7 +58,20 @@ client.connect(err => {
 	collection.updateOne(updateBhawan, newvalueBhawan, function(err, res) {
     if (err) throw err;
     console.log("Update complete");
+  */
+  /*
+  const collection = client.db("SBS_Hospital").collection("Department");
+	var findBhawan={Head_ID:105};
+	collection.find(findBhawan,{projection:{_id:0,Dept_ID:1,Dept_Name:1}}).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+  */
   
+  const collection = client.db("SBS_Hospital").collection("Room_Type");
+	var deleteBhawan = { Type:"Casualty" };
+	collection.deleteMany(deleteBhawan, function(err, result) {
+    if (err) throw err;
+    console.log("Deleted the Casualty...");
   
   client.close();
 });
