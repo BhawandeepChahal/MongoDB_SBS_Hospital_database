@@ -16,8 +16,9 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Nurses table..");
-  */
   
+  */
+  /*
   const collection = client.db("SBS_Hospital").collection("Room_Type");
   
   var insertRoom=[{Room_Number:"1A",Type:"ICU",No_Of_Beds:12,Floor:1,RoomCostPerHour:120},
@@ -30,6 +31,21 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Room table..");
+  
+  
+  */
+  
+   const collection = client.db("SBS_Hospital").collection("Department");
+  var insertDept=[{Dept_ID:"AAA1",Dept_Name:"Psychology",Head_ID:103},
+					{Dept_ID:"AAA2",Dept_Name:"Dermatology",Head_ID:102},
+					{Dept_ID:"AAA3",Dept_Name:"Surgery",Head_ID:105},
+					{Dept_ID:"AAA4",Dept_Name:"Neurology",Head_ID:101},
+					{Dept_ID:"AAA5",Dept_Name:"Pediatrics",Head_ID:104}];
+						
+	collection.insertMany(insertDept,function(err,result){
+		if(err) throw err;
+		
+	console.log("Inserted 5 rows into Department table..");
   
   client.close();
 });
