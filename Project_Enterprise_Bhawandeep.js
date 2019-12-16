@@ -1,3 +1,5 @@
+//Bhawandeep Kaur
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://Simar:Sunny123gg@cluster0-xbxcz.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:true });
@@ -34,7 +36,7 @@ client.connect(err => {
   
   
   */
-  
+  /*
    const collection = client.db("SBS_Hospital").collection("Department");
   var insertDept=[{Dept_ID:"AAA1",Dept_Name:"Psychology",Head_ID:103},
 					{Dept_ID:"AAA2",Dept_Name:"Dermatology",Head_ID:102},
@@ -46,6 +48,17 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Department table..");
+  */
+  
+  const collection = client.db("SBS_Hospital").collection("Nurses");
+
+	var updateBhawan = { Nurse_ID: 205 };
+	var newvalueBhawan = { $set: {Position: "OR Nurse" } };
+	
+	collection.updateOne(updateBhawan, newvalueBhawan, function(err, res) {
+    if (err) throw err;
+    console.log("Update complete");
+  
   
   client.close();
 });
